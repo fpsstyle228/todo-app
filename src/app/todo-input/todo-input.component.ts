@@ -10,6 +10,7 @@ export class TodoInputComponent implements OnInit {
 
   @Output() toDoChanged = new EventEmitter<string>();
   toDoChange(inputText: string) {
+    console.log(inputText);
     this.toDoChanged.emit(inputText);
   }
   constructor() { }
