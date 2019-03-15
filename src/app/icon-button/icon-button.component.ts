@@ -9,11 +9,10 @@ export class IconButtonComponent implements OnInit {
   @Input() buttonName: string;
   @Input() inputText: string;
   @Output() onButtonAdd = new EventEmitter<string>();
+  constructor() { }
   iconButtonClick(inputText: string) {
     this.onButtonAdd.emit(inputText);
   }
-  constructor() { }
-
   ngOnInit() {
   }
 
