@@ -7,9 +7,10 @@ import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
 })
 export class IconButtonComponent implements OnInit {
   @Input() buttonName: string;
-  @Output() onAdd = new EventEmitter<string>();
-  click(inputText: string) {
-    this.onAdd.emit(inputText);
+  @Input() inputText: string;
+  @Output() onButtonAdd = new EventEmitter<string>();
+  iconButtonClick(inputText: string) {
+    this.onButtonAdd.emit(inputText);
   }
   constructor() { }
 

@@ -8,6 +8,8 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { FormsModule} from "@angular/forms";
 import { TextButtonComponent } from './text-button/text-button.component';
 import { IconButtonComponent } from './icon-button/icon-button.component';
+import { AppChecboxComponent } from './app-checbox/app-checbox.component';
+import {ToDoService} from "./to-do-service.service";
 
 
 @NgModule({
@@ -17,14 +19,15 @@ import { IconButtonComponent } from './icon-button/icon-button.component';
     TodoInputComponent,
     TodoListComponent,
     TextButtonComponent,
-    IconButtonComponent
+    IconButtonComponent,
+    AppChecboxComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [ToDoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

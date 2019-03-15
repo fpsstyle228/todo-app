@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ToDo} from './ToDo';
+import {ToDoInterface} from '../ToDoInterface';
+import {ToDoService} from "../to-do-service.service";
 
 @Component({
   selector: 'app-todo-component',
@@ -8,30 +9,23 @@ import {ToDo} from './ToDo';
 })
 export class TodoComponentComponent implements OnInit {
   userTask: string;
-  toDos: ToDo[];
-  constructor() { }
+  textFromButton: string;
+  toDos: ToDoInterface[];
+  constructor(private _toDoService: ToDoService) { }
   toDoChanged(userString: string) {
     this.userTask = userString;
-    console.log(this.userTask);
+  }
+  onButtonAdd(userString: string) {
+    this.textFromButton = userString;
+    this.toDos.push({
+      id: 3,
+      title: this.textFromButton,
+      completed: false
+    });
+    console.log(this.toDos)
   }
   ngOnInit() {
-    this.toDos = [
-      {
-        id: 1,
-        title: 'Todo one',
-        completed: false
-      },
-      {
-        id: 2,
-        title: 'Todo two',
-        completed: false
-      },
-      {
-        id: 3,
-        title: 'Todo third',
-        completed: false
-      }
-    ];
+    this.toDos = this._toDoService.getToDos()
   }
 
 }

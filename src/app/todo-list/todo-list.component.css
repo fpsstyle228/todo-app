@@ -30,7 +30,9 @@
   margin-left: 10px;
   margin-right: 10px;
 }
-
+.task-complete{
+  text-decoration: line-through;
+}
 .list-text{
   max-width: 80%;
   text-align: center;
