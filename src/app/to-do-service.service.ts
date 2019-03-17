@@ -29,7 +29,10 @@ export class ToDoService {
   changeToDos(index,property,value){
     this.toDoArray[index][property] = value;
   }
-  setToDos(obj: ToDoInterface){
+  deleteToDos(index){
+    this.toDoArray.splice(index,1);
+  }
+  addToDos(obj: ToDoInterface){
     this.toDoArray.push(obj);
   }
 }

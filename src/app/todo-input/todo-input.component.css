@@ -1,37 +1,19 @@
 .input-inside > input{
   font-size: 20px;
   color: grey;
-  width: 74%;
+  width: 100%;
   height: 40px;
-  padding: 0;
   border-bottom-left-radius: 10px;
   border-top-left-radius: 10px;
   border: none;
   border-right: 1px solid black;
+  padding: 0 5px;
 }
-
-.input-inside > button {
-  background-color: #ffffff;
-  color: #555;
-  cursor: pointer;
-  font-size: 20px;
-  width: 24%;
-  height: 40px;
-  border: none;
-  border-bottom-right-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-.input-inside > button:hover{
-  background-color: #d0d0d0;
-  transition: all ease 0.4s;
-}
-
 .input-inside{
   padding-top: 20px;
-  display: flex;
-  justify-content: center;
+}
+:host{
+  display: block;
+  width: 80%;
 }
 
-.input{
-}

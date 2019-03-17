@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
+import {ToDoService} from "../to-do-service.service";
 
 @Component({
   selector: 'app-icon-button',
@@ -8,10 +9,14 @@ import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
 export class IconButtonComponent implements OnInit {
   @Input() buttonName: string;
   @Input() inputText: string;
-  @Output() onButtonAdd = new EventEmitter<string>();
-  constructor() { }
+  constructor(private _toDoService:ToDoService) { }
   iconButtonClick(inputText: string) {
-    this.onButtonAdd.emit(inputText);
+    const pushObject = {
+      id: this._toDoService.getToDos().length,
+      title: inputText,
+      completed: false
+    }
+    this._toDoService.addToDos(pushObject)
   }
   ngOnInit() {
   }
