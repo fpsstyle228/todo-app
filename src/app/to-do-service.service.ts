@@ -31,7 +31,7 @@ export class ToDoService {
     this.ToDoCollection = firestore.collection<ToDoInterface>(this.ToDoCollectionName);
     this.ToDo = this.ToDoCollection.snapshotChanges().pipe(
       map(a => {
-        const data = a.payload.doc.data() as ToDoInterface;
+        const data = a.payload.doc.data() as ToDoInterface; //ERR
         const id = a.payload.doc.id;
         return {id, ...data}
         }
