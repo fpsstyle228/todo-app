@@ -2,3 +2,7 @@
   background-color: #f44336;
   width: 600px;
 }
+.input{
+  display: flex;
+  justify-content: center;
+}

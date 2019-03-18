@@ -1,5 +1,8 @@
-:host > button{
+button{
   padding: 10px 20px 10px 20px;
   color: black;
   background-color: #fff;
+  border-radius: 10px;
+  outline: none;
+  border: none;
 }

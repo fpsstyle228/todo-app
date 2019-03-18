@@ -1,11 +1,11 @@
 <div class="todo-main">
   <div class="input">
-    <div class="input-inside">
-      <app-text-button></app-text-button>
-      <app-icon-button buttonName="Add" ></app-icon-button>
-      <app-todo-input (toDoChanged)="toDoChanged($event)" ></app-todo-input>
+      <app-todo-input
+        (toDoChanged)="toDoChanged($event)" ></app-todo-input>
+      <app-icon-button
+        buttonName="Add"
+        [inputText]="userTask"
+        (onButtonAdd)="onButtonAdd($event)"></app-icon-button>
     </div>
-  </div>
   <app-todo-list></app-todo-list>
-
 </div>

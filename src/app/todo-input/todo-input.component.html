@@ -1,6 +1,7 @@
  <div class="input-inside">
     <input
       [(ngModel)]="tepmTaskInput"
-      (change)="toDoChange(tepmTaskInput)"
-      type="text">
+      (input)="toDoChange(tepmTaskInput)"
+      type="text"
+      placeholder="Here input your task"/>
  </div>

@@ -1,7 +1,7 @@
-<div class="todo-list" *ngFor="let todo of todos">
-  <div class="list-cont">
-    <input class="list-input" type="checkbox">
-    <p class="list-text">Cheese</p>
-    <button class="list-button">Delete</button>
-  </div>
-</div>
+<ul *ngFor="let toDo of toDoList; let i = index" >
+  <li>
+    <app-app-checbox [checkIndex] = "i" ></app-app-checbox>
+    <span [ngClass]="{'task-complete': toDo.completed }">{{toDo.title}}</span>
+    <app-text-button [deleteIndex] = "i" ></app-text-button>
+  </li>
+</ul>

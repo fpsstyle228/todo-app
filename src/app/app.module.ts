@@ -8,6 +8,12 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { FormsModule} from "@angular/forms";
 import { TextButtonComponent } from './text-button/text-button.component';
 import { IconButtonComponent } from './icon-button/icon-button.component';
+import { AppChecboxComponent } from './app-checbox/app-checbox.component';
+import {ToDoService} from "./to-do-service.service";
+import {environment} from "../environments/environment";
+import {AngularFireModule} from "@angular/fire";
+import {AngularFirestoreModule} from "@angular/fire/firestore";
+
 
 
 @NgModule({
@@ -17,14 +23,17 @@ import { IconButtonComponent } from './icon-button/icon-button.component';
     TodoInputComponent,
     TodoListComponent,
     TextButtonComponent,
-    IconButtonComponent
+    IconButtonComponent,
+    AppChecboxComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule
   ],
-  providers: [],
+  providers: [ToDoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
