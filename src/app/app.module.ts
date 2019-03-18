@@ -10,6 +10,10 @@ import { TextButtonComponent } from './text-button/text-button.component';
 import { IconButtonComponent } from './icon-button/icon-button.component';
 import { AppChecboxComponent } from './app-checbox/app-checbox.component';
 import {ToDoService} from "./to-do-service.service";
+import {environment} from "../environments/environment";
+import {AngularFireModule} from "@angular/fire";
+import {AngularFirestoreModule} from "@angular/fire/firestore";
+
 
 
 @NgModule({
@@ -25,7 +29,9 @@ import {ToDoService} from "./to-do-service.service";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule
   ],
   providers: [ToDoService],
   bootstrap: [AppComponent]
