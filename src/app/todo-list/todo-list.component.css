@@ -13,3 +13,6 @@ ul > li > span {
   font-size: 18px;
   font-weight: 400;
 }
+.task-complete{
+  text-decoration: line-through;
+}

@@ -12,7 +12,6 @@ export class TodoComponentComponent implements OnInit {
   userTask: string;
   textFromButton: string;
   toDos: ToDoInterface[];
-  toDosFirebase: Observable<ToDoInterface[]>;
   constructor(private _toDoService: ToDoService) { }
   toDoChanged(userString: string) {
     this.userTask = userString;
@@ -20,14 +19,9 @@ export class TodoComponentComponent implements OnInit {
   onButtonAdd(userString: string) {
     this.textFromButton = userString;
   }
-  //  getToDo(){
-  //   //   this._toDoService.getToDosFirebase().subscribe(items => {
-  //   //     this.toDosFirebase = items;
-  //   //     console.log(items);
-  //   //   });
-  //   // }
   ngOnInit() {
-    // this.getToDo()
+   // this._toDoService.getToDos();
+   // this.toDos = this._toDoService.ToDo
   }
 
 }
