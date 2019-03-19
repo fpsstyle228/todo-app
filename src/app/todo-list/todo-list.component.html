@@ -1,7 +1,7 @@
-<ul *ngFor="let toDo of toDoList; let i = index" >
+<ul *ngFor="let toDo of toDoList">
   <li>
-    <app-app-checbox [checkIndex] = "i" ></app-app-checbox>
+    <app-app-checbox [completed] = "toDo.completed" [checkIndex] = "toDo.id" ></app-app-checbox>
     <span [ngClass]="{'task-complete': toDo.completed }">{{toDo.title}}</span>
-    <app-text-button [deleteIndex] = "i" ></app-text-button>
+    <app-text-button [deleteIndex] = "toDo.id" ></app-text-button>
   </li>
 </ul>

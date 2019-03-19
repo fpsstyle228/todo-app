@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ToDoService} from "../to-do-service.service";
 
 @Component({
@@ -7,13 +7,13 @@ import {ToDoService} from "../to-do-service.service";
   styleUrls: ['./app-checbox.component.css']
 })
 export class AppChecboxComponent implements OnInit {
-  @Input() checkIndex: boolean;
-  appCheckBoxChange(isChecked: boolean) {
-    this._toDoService.changeToDos(this.checkIndex,'completed',isChecked);
-    console.log(this._toDoService.getToDos());
-  }
+  @Input() checkIndex: string;
+  @Input() completed: boolean;
   constructor(private _toDoService: ToDoService) { }
-
+  appCheckBoxChange(isChecked: boolean) {
+    console.log(isChecked);
+    this._toDoService.changeToDos(this.checkIndex,'completed', isChecked)
+  }
   ngOnInit() {
   }
 

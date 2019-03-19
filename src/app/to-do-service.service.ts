@@ -10,58 +10,30 @@ import {ToDoInterface} from './ToDoInterface'
   providedIn: 'root'
 })
 export class ToDoService {
-  public toDoArray:ToDoInterface[] = [
-    {
-      title: 'Todo one',
-      completed: false
-    },
-    {
-      title: 'Todo two',
-      completed: false
-    },
-    {
-      title: 'Todo third',
-      completed: false
-    }
-  ];
-  private ToDoCollection: AngularFirestoreCollection<ToDoInterface>;
-  ToDo: Observable<ToDoIdInterface[]>;
-  ToDoCollectionName: string = "ToDo";
-  constructor(private readonly firestore: AngularFirestore) {
-    this.ToDoCollection = firestore.collection<ToDoInterface>(this.ToDoCollectionName);
-    this.ToDo = this.ToDoCollection.snapshotChanges().pipe(
-      map(a => {
-        const data = a.payload.doc.data() as ToDoInterface; //ERR
-        const id = a.payload.doc.id;
-        return {id, ...data}
-        }
-      ));
-    console.log(this.ToDo);
-  }
-  getToDos(){
-    return this.toDoArray;
-  }
-  getToDosFirebase(){
+  private ToDoCollectionName: string = "ToDo";
+  private ToDoCollection: AngularFirestoreCollection<ToDoInterface> = this.firestore.collection<ToDoInterface>(this.ToDoCollectionName);
+  static ToDo: ToDoIdInterface[];
+  constructor(private firestore: AngularFirestore) {
 
   }
+   getToDos():Observable<ToDoIdInterface[]>{
+    return this.ToDoCollection.snapshotChanges().pipe(
+      map(action => {
+        return action.map(a => {
+          const data = a.payload.doc.data() as ToDoInterface;
+          const id = a.payload.doc.id;
+          return {id, ...data}
+        })
+      })
+    )
+  }
   changeToDos(index,property,value){
-    this.toDoArray[index][property] = value;
+    this.ToDoCollection.doc(index).update({[property] : value})
   }
   deleteToDos(index){
-    this.toDoArray.splice(index,1);
-  }
-  deleteToDosFirebase(index){
-    // this.firestore.collection("ToDO").doc(index).delete();
+    this.ToDoCollection.doc(index).delete();
   }
   addToDos(obj: ToDoInterface){
-    this.toDoArray.push(obj);
-  }
-  addToDosFirebase(obj: ToDoInterface){
-    return new Promise<any>(((resolve, reject) => {
-      this.firestore
-        .collection("ToDo")
-        .add(obj)
-        .then(res => console.log('data send!'), err => reject(err))
-    }))
+    this.ToDoCollection.add(obj);
   }
 }

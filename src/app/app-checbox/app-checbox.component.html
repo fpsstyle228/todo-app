@@ -1,1 +1,1 @@
-<input #myCheckBox (change)="appCheckBoxChange(myCheckBox.checked)" type="checkbox">
+<input #myCheckBox [checked]="completed" (change) = "appCheckBoxChange(myCheckBox.checked)" type="checkbox">

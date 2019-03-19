@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ToDoService} from "../to-do-service.service";
 import {ToDoInterface} from "../ToDoInterface";
+import {ToDoIdInterface} from "../ToDoIdInterface";
 
 
 @Component({
@@ -10,9 +11,13 @@ import {ToDoInterface} from "../ToDoInterface";
 })
 export class TodoListComponent implements OnInit {
   toDoList: ToDoInterface[];
-  constructor(private _toDoService:ToDoService) { }
-  ngOnInit() {
-  this.toDoList = this._toDoService.getToDos();
+  constructor(private _toDoService:ToDoService) {}
+   getToDoList(){
+    this._toDoService.getToDos().subscribe((a:ToDoIdInterface[])  => {
+        this.toDoList = a;
+      });
   }
-
+   ngOnInit() {
+    this.getToDoList();
+  }
 }
