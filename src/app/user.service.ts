@@ -30,12 +30,12 @@ export class UserService {
     })
       .catch(err => console.log(err));
   }
-  signUp(email,pass,objUser): void{
-    this.afAuth.auth.createUserWithEmailAndPassword(email,pass)
+  signUp(email,pass,objUser){
+    return this.afAuth.auth.createUserWithEmailAndPassword(email,pass)
       .then(user => {
         this.UserCollection.doc(user.user.uid).set(objUser);
       })
-      .catch(err => console.log(err))
+      // .catch(err => console.log(err))
   }
   getUser():Observable<any>{
     console.log(JSON.parse(localStorage.getItem('user')).uid);
