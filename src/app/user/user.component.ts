@@ -16,7 +16,7 @@ export class UserComponent implements OnInit {
       console.log(this.user);
     })
   }
-  logOut(){
+  logOut() :void{
     this.userService.logOut();
   }
 

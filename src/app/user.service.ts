@@ -4,12 +4,12 @@ import {AngularFirestore, AngularFirestoreCollection} from "@angular/fire/firest
 import {Observable} from "rxjs";
 import {map} from 'rxjs/operators';
 import {Router} from "@angular/router";
+import {UserSignUpInterface} from "./userSignUpInterface";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  public loggedUser;
   private UserCollectionName: string = 'User';
   private UserCollection: AngularFirestoreCollection = this.afs.collection(this.UserCollectionName);
   constructor(public afAuth:AngularFireAuth,
@@ -22,7 +22,7 @@ export class UserService {
         this.router.navigate(['/toDoList'])
       }).catch(err => console.log(err));
   }
-  logOut(){
+  logOut(): void{
     this.afAuth.auth.signOut().then(user => {
       localStorage.removeItem('user');
       this.router.navigate(['/auth']);
@@ -30,7 +30,7 @@ export class UserService {
     })
       .catch(err => console.log(err));
   }
-  signUp(email,pass,objUser){
+  signUp(email,pass,objUser: UserSignUpInterface){
     return this.afAuth.auth.createUserWithEmailAndPassword(email,pass)
       .then(user => {
         this.UserCollection.doc(user.user.uid).set(objUser);

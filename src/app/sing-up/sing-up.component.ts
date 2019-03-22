@@ -46,11 +46,11 @@ public userExit:string;
       },{ validators: [signUpValidators.repeatPassword]}),
     });
     this.userSignUpFormGroup.valueChanges.subscribe(user => {
-      delete user.repeatPassword;
+      user.passwords = user.passwords.password;
       this.userSignUp = user;
     });
   }
-  signUpClick(user){
+  signUpClick(user: UserSignUpInterface): void{
     if (this.userSignUpFormGroup.invalid){
       const controls = this.userSignUpFormGroup.controls;
       Object.keys(controls).forEach( control => {
@@ -64,8 +64,7 @@ public userExit:string;
     }
       return;
     }
-    console.log(user);
-    this.userService.signUp(user.email,user.passwords.password,user)
+    this.userService.signUp(user.email,user.password,user)
       .catch( err => {
       this.userExit = err.message;
     })
