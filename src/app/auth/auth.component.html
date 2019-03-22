@@ -1,0 +1,10 @@
+<div>
+  <fieldset [formGroup]="userAuthFormGroup">
+    <input formControlName="email" type="text">
+    <input formControlName="password" type="password">
+  </fieldset>
+</div>
+<div>
+  <button (click)="signInBtnClick(user)">SignIn</button>
+  <a routerLink="/signUp">SignUp</a>
+</div>
