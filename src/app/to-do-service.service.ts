@@ -11,7 +11,9 @@ import {ToDoInterface} from './ToDoInterface'
 })
 export class ToDoService {
   private ToDoCollectionName: string = "ToDo";
-  private ToDoCollection: AngularFirestoreCollection<ToDoInterface> = this.firestore.collection<ToDoInterface>(this.ToDoCollectionName);
+  private UserCollectionName: string = 'User';
+  private UserId:string =JSON.parse(localStorage.getItem('user')).uid
+  private ToDoCollection: AngularFirestoreCollection<ToDoInterface> = this.firestore.collection(this.UserCollectionName).doc(this.UserId).collection<ToDoInterface>(this.ToDoCollectionName);
   static ToDo: ToDoIdInterface[];
   constructor(private firestore: AngularFirestore) {
 

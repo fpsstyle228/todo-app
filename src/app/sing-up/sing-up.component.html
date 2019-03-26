@@ -1,0 +1,19 @@
+<div>
+  <form [formGroup]="userSignUpFormGroup" (ngSubmit)="signUpClick(userSignUp)">
+    <input formControlName="email" type="email" placeholder="your email">
+    <input formControlName="username" type="text" placeholder="your username">
+    <select formControlName="gender">
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="dontKnow">I dont know</option>
+    </select>
+    <input formControlName="phone" type="text" placeholder="your phone">
+    <input formControlName="country" type="text" placeholder="your country">
+    <div formGroupName="passwords">
+      <input formControlName="password" type="password" placeholder="password">
+      <input [ngClass]="{'error': this.userSignUpFormGroup.controls['passwords'].errors }" formControlName="repeatPassword" type="password" placeholder="repeat your password">
+    </div>
+    <button type="submit">SignUp</button>
+  </form>
+  <p *ngIf="userExit">{{userExit}}</p>
+</div>
