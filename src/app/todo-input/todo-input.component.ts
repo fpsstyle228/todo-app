@@ -6,7 +6,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
   styleUrls: ['./todo-input.component.css']
 })
 export class TodoInputComponent implements OnInit {
-  tepmTaskInput: string = '';
+  tepmTaskInput: string;
 
   @Output() toDoChanged = new EventEmitter<string>();
   toDoChange(inputText: string) {

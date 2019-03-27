@@ -1,0 +1,9 @@
+<div class="top-bar-main">
+  <div class="left">
+    <button *ngIf="emailVerified" mat-button color="warn" (click)="verifyEmailCLick()">Verify email</button>
+    <p *ngIf="text">{{text}}</p>
+  </div>
+  <div class="right">
+    <app-user></app-user>
+  </div>
+</div>

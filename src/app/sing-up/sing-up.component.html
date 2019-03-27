@@ -1,0 +1,33 @@
+
+  <form [formGroup]="userSignUpFormGroup" (ngSubmit)="signUpClick(userSignUp)">
+    <mat-form-field>
+      <input matInput formControlName="email" type="email" placeholder="your email">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="username" type="text" placeholder="your username">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select formControlName="gender" placeholder="Gender">
+        <mat-option value="option">Male</mat-option>
+        <mat-option value="option">Female</mat-option>
+        <mat-option value="option">I dont know</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="phone" type="text" placeholder="your phone">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="country" type="text" placeholder="your country">
+    </mat-form-field>
+    <div class="password" formGroupName="passwords">
+      <mat-form-field>
+        <input matInput formControlName="password" type="password" placeholder="password">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [ngClass]="{'error': this.userSignUpFormGroup.controls['passwords'].errors }"
+               formControlName="repeatPassword" type="password" placeholder="repeat your password">
+      </mat-form-field>
+    </div>
+      <button mat-button color="primary" type="submit">SignUp</button>
+  </form>
+  <p *ngIf="userExit">{{userExit}}</p>

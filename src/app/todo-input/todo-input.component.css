@@ -12,6 +12,10 @@
 .input-inside{
   padding-top: 20px;
 }
+.inputText{
+  width: 100%;
+  border-color: white;
+}
 :host{
   display: block;
   width: 80%;

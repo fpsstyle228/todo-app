@@ -4,10 +4,11 @@ ul{
   padding-right: 30px;
   padding-bottom: 10px;
 }
-ul > li {
+.listItem {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 ul > li > span {
   font-size: 18px;

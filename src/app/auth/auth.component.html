@@ -1,0 +1,21 @@
+<div class="authform" [formGroup]="userAuthFormGroup">
+    <mat-form-field>
+      <input matInput
+             placeholder="email"
+             formControlName="email">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput
+             type="password"
+             placeholder="password"
+             formControlName="password">
+    </mat-form-field>
+  </div>
+  <div>
+    <button mat-button color="primary"
+            (click)="signInBtnClick(user)">SignIn</button>
+    <a mat-button  routerLink="/signUp">SignUp</a>
+    <button mat-button color="accent" (click)="forgotPassClick()">I forgot password</button>
+  </div>
+<button mat-button color="primary" (click)="signInWithGoogle()">SignIn with Google</button>
+<p *ngIf="messageSend" class="mat-h2 green">Email send</p>

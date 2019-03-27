@@ -1,0 +1,15 @@
+input.ng-touched.ng-invalid{
+  border-color: red;
+}
+input.ng-touched.ng-valid{
+  border-color: green;
+}
+.authform{
+  display: flex;
+  flex-direction: column;
+}
+.green{
+  color:green;
+  width: 100%;
+  text-align: center;
+}

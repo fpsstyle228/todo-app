@@ -1,7 +1,11 @@
-<ul *ngFor="let toDo of toDoList">
-  <li>
-    <app-app-checbox [completed] = "toDo.completed" [checkIndex] = "toDo.id" ></app-app-checbox>
-    <span [ngClass]="{'task-complete': toDo.completed }">{{toDo.title}}</span>
-    <app-text-button [deleteIndex] = "toDo.id" ></app-text-button>
-  </li>
-</ul>
+<mat-list *ngFor="let toDo of toDoList">
+  <mat-list-item @fadeIn>
+    <div class="listItem">
+      <app-app-checbox [completed] = "toDo.completed" [checkIndex] = "toDo.id" ></app-app-checbox>
+      <span [ngClass]="{'task-complete': toDo.completed }">{{toDo.title}}</span>
+      <app-text-button [deleteIndex] = "toDo.id" ></app-text-button>
+    </div>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+</mat-list>
+

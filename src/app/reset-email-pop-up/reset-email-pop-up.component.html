@@ -1,0 +1,7 @@
+<mat-form-field>
+  <input matInput
+         placeholder="input here your email"
+         [formControl]="email">
+</mat-form-field>
+<button mat-button color="primary" (click)="onSendClick(sendEmail)">Send Email</button>
+<button mat-button>CLose</button>

@@ -1,7 +1,9 @@
  <div class="input-inside">
-    <input
-      [(ngModel)]="tepmTaskInput"
-      (input)="toDoChange(tepmTaskInput)"
-      type="text"
-      placeholder="Here input your task"/>
+   <mat-form-field class="inputText">
+     <input matInput
+            [(ngModel)]="tepmTaskInput"
+            placeholder="Here input your task"
+            (input)="toDoChange(tepmTaskInput)">
+   </mat-form-field>
  </div>
+

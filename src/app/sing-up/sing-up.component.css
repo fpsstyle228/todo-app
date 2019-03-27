@@ -1,0 +1,21 @@
+input.ng-touched.ng-invalid{
+  border-color: red;
+}
+input.ng-touched.ng-valid{
+  border-color: green;
+}
+.error.ng-touched{
+  border-color: red !important;
+}
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.password{
+  display: flex;
+  flex-direction: column;
+}
+:host{
+  width: 25%;
+}
